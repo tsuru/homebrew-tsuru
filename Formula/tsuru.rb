@@ -4,7 +4,7 @@ class Tsuru < Formula
   url 'https://s3.amazonaws.com/tsuru/dist-src/tsuru-src.tar.gz'
   version '0.6'
   homepage 'http://tsuru.io'
-  md5 '1234567890ABCDEF1234567890ABCDEF'
+  md5 '37f702b0697ed0d309859e9833305bab'
 
   depends_on 'go'
 
