@@ -6,8 +6,10 @@ class TsuruAdmin < Formula
   sha256 '5f7e51e909bb948db19d05cf14ec3ee40c6cff0d569cc84ef3c9aacc4286e11d'
 
   depends_on 'go'
+  depends_on 'bzr'
 
   def install
+    system "go", "get", "-d", "./cmd/tsuru-admin"
     system "go", "build", "-o", "tsuru-admin", "./cmd/tsuru-admin"
     bin.install "tsuru-admin"
   end
