@@ -9,8 +9,8 @@ class Tsuru < Formula
   depends_on 'bzr'
 
   def install
-    system "go", "get", "-d", "./cmd/tsuru"
-    system "go", "build", "-o", "tsuru", "./cmd/tsuru"
+    system "bash", "-c", "GOPATH=\"\" go get -d ./cmd/tsuru"
+    system "bash", "-c", "GOPATH=\"\" go build -o tsuru ./cmd/tsuru"
     bin.install "tsuru"
     bash_completion.install "misc/bash-completion.d/tsuru"
   end

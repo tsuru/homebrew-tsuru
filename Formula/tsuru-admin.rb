@@ -9,8 +9,8 @@ class TsuruAdmin < Formula
   depends_on 'bzr'
 
   def install
-    system "go", "get", "-d", "./cmd/tsuru-admin"
-    system "go", "build", "-o", "tsuru-admin", "./cmd/tsuru-admin"
+    system "bash", "-c", "GOPATH=\"\" go get -d ./cmd/tsuru-admin"
+    system "bash", "-c", "GOPATH=\"\" go build -o tsuru-admin ./cmd/tsuru-admin"
     bin.install "tsuru-admin"
   end
 end

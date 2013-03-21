@@ -9,8 +9,8 @@ class Crane < Formula
   depends_on 'bzr'
 
   def install
-    system "go", "get", "-d", "./cmd/crane"
-    system "go", "build", "-o", "crane", "./cmd/crane"
+    system "bash", "-c", "GOPATH=\"\" go get -d ./cmd/crane"
+    system "bash", "-c", "GOPATH=\"\" go build -o crane ./cmd/crane"
     bin.install "crane"
     bash_completion.install "misc/bash-completion.d/crane"
   end
