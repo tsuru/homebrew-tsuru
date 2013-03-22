@@ -54,8 +54,10 @@ function download {
 }
 
 function package {
-	tar -czf $1 * -C /tmp/tsuru-clients
+	pushd /tmp/tsuru-clients
+	tar -czf $1 *
 	shasum -a 256 $1
+	popd
 }
 
 echo -n "Creating \"$destination_dir\" directory... "
