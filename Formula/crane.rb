@@ -1,9 +1,9 @@
 require 'formula'
 
 class Crane < Formula
-  url 'https://s3.amazonaws.com/tsuru/dist-src/crane-0.4.2.tar.gz'
+  url 'https://s3.amazonaws.com/tsuru/dist-src/crane-0.4.3.tar.gz'
   homepage 'http://tsuru.io'
-  sha256 'f5dbb78b1ed50adf6d089b207f0078cb58ef08c7ceb164f902239f8e44441798'
+  sha256 '92d03838af9c82fa57ecafacf9166d996fd6b9a75bff6940802339bee8da7c2a'
 
   depends_on 'go'
 
