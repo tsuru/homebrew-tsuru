@@ -41,7 +41,7 @@ case $1 in
 esac
 
 function get_version {
-	GOPATH=/tmp/tsuru-clients go build -o $1 github.com/globocom/tsuru/$2
+	GOPATH=/tmp/tsuru-clients go build -o $1 github.com/globocom/tsuru/cmd/$1
 	echo `./$1 version | awk '{print $3}' | sed -e 's/\.$//'`
 	rm $1
 }
@@ -69,21 +69,21 @@ download
 if [ $crane = 1 ]
 then
 	echo -n "Determining crane version... "
-	crane_version=`get_version crane cmd/crane`
+	crane_version=`get_version crane`
 	echo $crane_version
 fi
 
 if [ $tsuru = 1 ]
 then
 	echo -n "Determining tsuru version... "
-	tsuru_version=`get_version tsuru cmd/tsuru`
+	tsuru_version=`get_version tsuru`
 	echo $tsuru_version
 fi
 
 if [ $admin = 1 ]
 then
 	echo -n "Determining tsuru-admin version... "
-	admin_version=`get_version tsuru-admin cmd/tsuru-admin`
+	admin_version=`get_version tsuru-admin`
 	echo $admin_version
 fi
 
