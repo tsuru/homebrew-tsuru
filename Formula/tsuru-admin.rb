@@ -8,7 +8,7 @@ class TsuruAdmin < Formula
   depends_on 'go'
 
   def install
-    system "bash", "-c", "export GOVERSION=$(go version | cut -d' ' -f3) && [ \"x$GOVERSION\" = \"xdevel\" ] || [ \"x$GOVERSION\" = \"xgo1.1\" ] || (echo && echo \"ERROR: tsuru-admin requires Go 1.1 or later, your version is $GOVERSION\" && exit 1)"
+    system "bash", "-c", "export GOVERSION=$(go version | cut -d' ' -f3) && [ \"x$GOVERSION\" = \"xdevel\" ] || [ \"x$GOVERSION\" = \"xgo1.1\" ] || [ \"x$GOVERSION\" = \"xgo1.1.1\" ] || (echo && echo \"ERROR: tsuru-admin requires Go 1.1 or later, your version is $GOVERSION\" && exit 1)"
     system "bash", "-c", "GOPATH=\"$PWD\" go build -o tsuru-admin github.com/globocom/tsuru/cmd/tsuru-admin"
     bin.install "tsuru-admin"
   end
