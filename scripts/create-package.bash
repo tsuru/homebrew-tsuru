@@ -49,7 +49,10 @@ function get_version {
 function download {
 	echo -n "Downloading source... "
 	mkdir -p /tmp/tsuru-clients/src /tmp/tsuru-clients/pkg
-	GOPATH=/tmp/tsuru-clients go get -d github.com/globocom/tsuru/cmd/...
+	GOPATH=/tmp/tsuru-clients go get -d github.com/globocom/tsuru/...
+	pushd $GOPATH/src/github.com/globocom/tsuru > /dev/null 2>&1
+	GOPATH=/tmp/tsuru-clients godep restore ./...
+	popd > /dev/null 2>&1
 	echo "ok"
 }
 
