@@ -8,7 +8,7 @@ class Crane < Formula
   depends_on 'go'
 
   def install
-    system "bash", "-c", "[ $( go version|awk '{print $3}' | cut -d' ' -f3|sed 's/go//; s/\.//g; s/^\(..\).*/\1/') -lt 11 ] && echo ERROR: crane requires Go 1.1 or later, your version is: $(go version) && exit 1"
+    system "bash", "-c", "test $( go version|awk '{print \$3}' | sed 's/go//; s/\\.//g; s/^\\(..\\).*/\\1/') -lt 11 && echo ERROR: crane requires Go 1.1 or later, your version is: $(go version) && exit 1 || echo proceeding ..."
     system "bash", "-c", "GOPATH=\"$PWD\" go build -o crane github.com/globocom/tsuru/cmd/crane"
     bin.install "crane"
     bash_completion.install "src/github.com/globocom/tsuru/misc/bash-completion.d/crane"
