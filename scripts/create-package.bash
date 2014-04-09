@@ -41,7 +41,7 @@ case $1 in
 esac
 
 function get_version {
-	GOPATH=/tmp/tsuru-clients go build -o $1 github.com/globocom/tsuru/cmd/$1
+	GOPATH=/tmp/tsuru-clients go build -o $1 github.com/tsuru/tsuru/cmd/$1
 	echo `./$1 version | awk '{print $3}' | sed -e 's/\.$//'`
 	rm $1
 }
@@ -49,8 +49,8 @@ function get_version {
 function download {
 	echo -n "Downloading source... "
 	mkdir -p /tmp/tsuru-clients/src /tmp/tsuru-clients/pkg
-	GOPATH=/tmp/tsuru-clients go get -d github.com/globocom/tsuru/...
-	pushd $GOPATH/src/github.com/globocom/tsuru > /dev/null 2>&1
+	GOPATH=/tmp/tsuru-clients go get -d github.com/tsuru/tsuru/...
+	pushd $GOPATH/src/github.com/tsuru/tsuru > /dev/null 2>&1
 	GOPATH=/tmp/tsuru-clients godep restore ./...
 	popd > /dev/null 2>&1
 	echo "ok"
