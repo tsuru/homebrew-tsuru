@@ -1,7 +1,7 @@
 require 'formula'
 
 class Tsuru < Formula
-  url 'https://s3.amazonaws.com/tsuru/dist-src/tsuru-0.8.11.tar.gz'
+  url 'https://s3.amazonaws.com/tsuru/dist-src/tsuru-0.8.11.1.tar.gz'
   homepage 'http://tsuru.io'
   sha256 'f2660432d2aa0e9661b472e15aa5554c52f63a68cf37b53a79e9b3d085e98a2e'
 
