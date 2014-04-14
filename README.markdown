@@ -9,7 +9,7 @@ and crane).
 
 First, add this tap:
 
-	% brew tap globocom/homebrew-tsuru
+	% brew tap tsuru/homebrew-tsuru
 
 Then install the desired formula:
 
