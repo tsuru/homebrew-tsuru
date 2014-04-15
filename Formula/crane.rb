@@ -9,8 +9,8 @@ class Crane < Formula
 
   def install
     system "bash", "-c", "test $( go version|awk '{print \$3}' | sed 's/^[^0-9]*\\([0-9]\\)[^0-9]*\\([0-9]\\).*/\\1\\2/') -lt 11 && echo ERROR: crane requires Go 1.1 or later, your version is: $(go version) && exit 1 || echo proceeding ..."
-    system "bash", "-c", "GOPATH=\"$PWD\" go build -o crane github.com/tsuru/tsuru/cmd/crane"
+    system "bash", "-c", "GOPATH=\"$PWD\" go build -o crane github.com/globocom/tsuru/cmd/crane"
     bin.install "crane"
-    bash_completion.install "src/github.com/tsuru/tsuru/misc/bash-completion.d/crane"
+    bash_completion.install "src/github.com/globocom/tsuru/misc/bash-completion.d/crane"
   end
 end
