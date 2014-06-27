@@ -1,12 +1,9 @@
 require 'formula'
 
-PACKAGE_VERSION = "0.4.1"
-
 class Gandalf < Formula
-  url "https://s3.amazonaws.com/tsuru/dist-src/gandalf-#{ PACKAGE_VERSION }.tar.gz"
+  url "https://s3.amazonaws.com/tsuru/dist-src/gandalf-0.4.1.tar.gz"
   homepage 'https://github.com/tsuru/gandalf'
   sha256 '95bcd9dd4565074cb0a18b114def2e7cc9d0f58f4be187b4f2170463e05974ec'
-  version PACKAGE_VERSION
 
   depends_on 'go'
 
