@@ -3,7 +3,7 @@ require 'formula'
 class TsuruAdmin < Formula
   url 'https://s3.amazonaws.com/tsuru/dist-src/tsuru-admin-0.4.0.tar.gz'
   homepage 'http://tsuru.io'
-  sha256 '285b0e6e512e93b45979c1d09700dd5a2e719dbe0194f1d8eba38d61ddaa047f'
+  sha256 '4bb105bfc3c00cc9ee739888d9e17ef3783012254e218c126a1b6ca4fb7592e7'
 
   depends_on 'go'
 
