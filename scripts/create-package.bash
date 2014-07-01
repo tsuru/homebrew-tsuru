@@ -60,6 +60,7 @@ function download {
 	mkdir -p /tmp/tsuru-clients/src /tmp/tsuru-clients/pkg
 	GOPATH=/tmp/tsuru-clients go get -d github.com/tsuru/tsuru/...
 	pushd $GOPATH/src/github.com/tsuru/tsuru > /dev/null 2>&1
+	echo "ok"
 	echo -n "Restoring dependencies... "
 	GOPATH=/tmp/tsuru-clients godep restore ./...
 	popd > /dev/null 2>&1
