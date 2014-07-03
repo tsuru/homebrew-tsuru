@@ -1,6 +1,6 @@
 #!/bin/bash -e
 
-# Copyright 2013 Globo.com. All rights reserved.
+# Copyright 2014 Globo.com. All rights reserved.
 # Use of this source code is governed by a BSD-style
 # license that can be found in the LICENSE file.
 
@@ -44,34 +44,23 @@ case $1 in
 esac
 
 function get_version {
-	GOPATH=/tmp/tsuru-clients go build -o $1 github.com/tsuru/tsuru/cmd/$1
+	GOPATH=/tmp/tsuru-clients go build -o $1 github.com/tsuru/$1
 	echo `./$1 version | awk '{print $3}' | sed -e 's/\.$//'`
 	rm $1
 }
 
-function get_gandalf_version {
-	GOPATH=/tmp/tsuru-clients go build -o gandalf github.com/tsuru/gandalf/webserver
-	echo `./gandalf -version | awk '{print $3}' | sed -e 's/\.$//'`
-	rm gandalf
+function get_tsuru_client_version {
+	GOPATH=/tmp/tsuru-clients go build -o tsuru github.com/tsuru/tsuru-client/tsuru
+	echo `./tsuru version | awk '{print $3}' | sed -e 's/\.$//'`
+	rm tsuru
 }
 
 function download {
-	echo -n "Downloading source... "
+	echo -n "Downloading $1 source... "
 	mkdir -p /tmp/tsuru-clients/src /tmp/tsuru-clients/pkg
-	GOPATH=/tmp/tsuru-clients go get -d github.com/tsuru/tsuru/...
-	pushd $GOPATH/src/github.com/tsuru/tsuru > /dev/null 2>&1
+	GOPATH=/tmp/tsuru-clients go get -d github.com/tsuru/$1/...
+	pushd $GOPATH/src/github.com/tsuru/$1 > /dev/null 2>&1
 	echo "ok"
-	echo -n "Restoring dependencies... "
-	GOPATH=/tmp/tsuru-clients godep restore ./...
-	popd > /dev/null 2>&1
-	echo "ok"
-}
-
-function download_gandalf {
-	echo -n "Downloading gandalf source... "
-	mkdir -p /tmp/tsuru-clients/src /tmp/tsuru-clients/pkg
-	GOPATH=/tmp/tsuru-clients go get -d github.com/tsuru/gandalf/...
-	pushd $GOPATH/src/github.com/tsuru/gandalf > /dev/null 2>&1
 	echo -n "Restoring dependencies... "
 	GOPATH=/tmp/tsuru-clients godep restore ./...
 	popd > /dev/null 2>&1
@@ -89,13 +78,9 @@ echo -n "Creating \"$destination_dir\" directory... "
 mkdir -p $destination_dir
 echo "ok"
 
-if [ $crane = 1 ] || [ $tsuru = 1 ] || [ $admin = 1 ]
-then
-	download
-fi
-
 if [ $crane = 1 ]
 then
+	download crane
 	echo -n "Determining crane version... "
 	crane_version=`get_version crane`
 	echo $crane_version
@@ -103,13 +88,15 @@ fi
 
 if [ $tsuru = 1 ]
 then
+	download tsuru-client
 	echo -n "Determining tsuru version... "
-	tsuru_version=`get_version tsuru`
+	tsuru_version=`get_tsuru_client_version`
 	echo $tsuru_version
 fi
 
 if [ $admin = 1 ]
 then
+	download tsuru-admin
 	echo -n "Determining tsuru-admin version... "
 	admin_version=`get_version tsuru-admin`
 	echo $admin_version
@@ -117,9 +104,9 @@ fi
 
 if [ $gandalf = 1 ]
 then
-	download_gandalf
+	download gandalf
 	echo -n "Determining gandalf version... "
-	gandalf_version=`get_gandalf_version`
+	gandalf_version=`get_version gandalf`
 	echo $gandalf_version
 fi
 
