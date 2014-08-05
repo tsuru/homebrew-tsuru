@@ -59,7 +59,7 @@ function download {
 	echo -n "Downloading $1 source... "
 	mkdir -p /tmp/tsuru-clients/src /tmp/tsuru-clients/pkg
 	GOPATH=/tmp/tsuru-clients go get -d github.com/tsuru/$1/...
-	pushd $GOPATH/src/github.com/tsuru/$1 > /dev/null 2>&1
+	pushd /tmp/tsuru-clients/src/github.com/tsuru/$1 > /dev/null 2>&1
 	echo "ok"
 	echo -n "Restoring dependencies... "
 	GOPATH=/tmp/tsuru-clients godep restore ./...
