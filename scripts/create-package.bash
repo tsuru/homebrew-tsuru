@@ -14,11 +14,11 @@
 function usage {
 	echo "Usage:"
 	echo
-	echo "  % $0 tsuru-admin|tsuru|crane|gandalf|all"
+	echo "  % $0 tsuru-admin|tsuru|crane|gandalf|all [version]"
 	exit 1
 }
 
-if [ $# != 1 ]
+if [[ $# < 1 ]]
 then
 	usage
 fi
@@ -60,6 +60,7 @@ function download {
 	mkdir -p /tmp/tsuru-clients/src /tmp/tsuru-clients/pkg
 	GOPATH=/tmp/tsuru-clients go get -d github.com/tsuru/$1/...
 	pushd /tmp/tsuru-clients/src/github.com/tsuru/$1 > /dev/null 2>&1
+	git checkout $2 >/dev/null 2>&1
 	echo "ok"
 	echo -n "Restoring dependencies... "
 	GOPATH=/tmp/tsuru-clients godep restore ./...
@@ -80,7 +81,7 @@ echo "ok"
 
 if [ $crane = 1 ]
 then
-	download crane
+	download crane $2
 	echo -n "Determining crane version... "
 	crane_version=`get_version crane`
 	echo $crane_version
@@ -88,7 +89,7 @@ fi
 
 if [ $tsuru = 1 ]
 then
-	download tsuru-client
+	download tsuru-client $2
 	echo -n "Determining tsuru version... "
 	tsuru_version=`get_tsuru_client_version`
 	echo $tsuru_version
@@ -96,7 +97,7 @@ fi
 
 if [ $admin = 1 ]
 then
-	download tsuru-admin
+	download tsuru-admin $2
 	echo -n "Determining tsuru-admin version... "
 	admin_version=`get_version tsuru-admin`
 	echo $admin_version
