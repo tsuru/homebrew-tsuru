@@ -49,6 +49,12 @@ function get_version {
 	rm $1
 }
 
+function get_gandalf_version {
+	GOPATH=/tmp/tsuru-clients go build -o gandalf github.com/tsuru/gandalf/webserver
+	echo `./gandalf -version | awk '{print $3}' | sed -e 's/\.$//'`
+	rm gandalf
+}
+
 function get_tsuru_client_version {
 	GOPATH=/tmp/tsuru-clients go build -o tsuru github.com/tsuru/tsuru-client/tsuru
 	echo `./tsuru version | awk '{print $3}' | sed -e 's/\.$//'`
@@ -107,7 +113,7 @@ if [ $gandalf = 1 ]
 then
 	download gandalf
 	echo -n "Determining gandalf version... "
-	gandalf_version=`get_version gandalf`
+	gandalf_version=`get_gandalf_version`
 	echo $gandalf_version
 fi
 
