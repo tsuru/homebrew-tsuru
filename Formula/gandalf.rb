@@ -1,9 +1,9 @@
 require 'formula'
 
 class Gandalf < Formula
-  url "https://s3.amazonaws.com/tsuru/dist-src/gandalf-0.4.1.tar.gz"
+  url "https://s3.amazonaws.com/tsuru/dist-src/gandalf-0.5.1.tar.gz"
   homepage 'https://github.com/tsuru/gandalf'
-  sha256 '95bcd9dd4565074cb0a18b114def2e7cc9d0f58f4be187b4f2170463e05974ec'
+  sha256 '166c0d9da1c583c0c691ccd69e0084a3b20cf19fd326266e737f0bef67049cfd'
 
   depends_on 'go'
 
