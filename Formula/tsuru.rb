@@ -15,5 +15,6 @@ class Tsuru < Formula
     bin.install "tsuru"
     man8.install "src/github.com/tsuru/tsuru-client/docs/source/exts/tsuru.8"
     bash_completion.install "src/github.com/tsuru/tsuru-client/misc/bash-completion" => "tsuru"
+    zsh_completion.install "src/github.com/tsuru/tsuru-client/misc/zsh-completion" => "tsuru"
   end
 end
