@@ -1,9 +1,9 @@
 require 'formula'
 
 class TsuruAdmin < Formula
-  url 'https://s3.amazonaws.com/tsuru/dist-src/tsuru-admin-0.10.0.tar.gz'
+  url 'https://s3.amazonaws.com/tsuru/dist-src/tsuru-admin-0.11.0.tar.gz'
   homepage 'https://tsuru.io'
-  sha256 '741c973ef9612189a7328c0d41742d70b4b4768e42a6b6bfac449506589ee0f5'
+  sha256 'ac09629714bf51d87c92fc6d765b89eecfb001a84a5deec934218fb0a09543a4'
 
   depends_on 'go'
 
@@ -12,5 +12,6 @@ class TsuruAdmin < Formula
     system "bash", "-c", "GOPATH=\"$PWD\" go build -o tsuru-admin github.com/tsuru/tsuru-admin"
     bin.install "tsuru-admin"
     bash_completion.install "src/github.com/tsuru/tsuru-admin/misc/bash-completion" => "tsuru-admin"
+    zsh_completion.install "src/github.com/tsuru/tsuru-admin/misc/zsh-completion" => "tsuru-admin"
   end
 end
