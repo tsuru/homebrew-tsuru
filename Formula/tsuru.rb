@@ -1,9 +1,9 @@
 require 'formula'
 
 class Tsuru < Formula
-  url "https://s3.amazonaws.com/tsuru/dist-src/tsuru-0.16.0.tar.gz"
+  url "https://s3.amazonaws.com/tsuru/dist-src/tsuru-0.17.0.tar.gz"
   homepage "https://tsuru.io"
-  sha256 "44ff369e4ca170f8a29982f1e472fc40862461b66382b9bf92255b68414157c7"
+  sha256 "eb107cd99e4c9f38f73bb39cb670ff68d29de085e6d8fe98f54944ef1a17d8cd"
 
   depends_on 'go'
 
