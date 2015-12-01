@@ -7,6 +7,11 @@ class Tsuru < Formula
 
   depends_on 'go'
 
+  devel do
+    url "https://s3.amazonaws.com/tsuru/dist-src/tsuru-0.18.0.tar.gz"
+    sha256 "e69c92fa046f216b33051e60ae2ba018d70e8639f80ac7dd08aed9f3f9e41f74"
+  end
+
   def install
     system "bash", "-c", "test $( go version|awk '{print \$3}' | sed 's/^[^0-9]*\\([0-9]\\)[^0-9]*\\([0-9]\\).*/\\1\\2/') -lt 14 && echo ERROR: tsuru requires Go 1.4 or later, your version is: $(go version) && exit 1 || echo proceeding ..."
     system "bash", "-c", "GOPATH=\"$PWD\" go build -o tsuru github.com/tsuru/tsuru-client/tsuru"
