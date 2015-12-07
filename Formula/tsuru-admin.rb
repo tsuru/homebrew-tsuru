@@ -9,7 +9,7 @@ class TsuruAdmin < Formula
 
   devel do
     url "https://s3.amazonaws.com/tsuru/dist-src/tsuru-0.12.0.tar.gz"
-    sha256 "b0812ad93a3ee147a26ae76ceb4fe869c8516f6dc15b382eefc61a204a8b83b4"
+    sha256 "7e7a31eb0ba2a9aa3def2e2be0a4ca4a7e5cfe45c027f608809412e2334afaf2"
   end
 
   def install
