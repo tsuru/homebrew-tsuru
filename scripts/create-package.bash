@@ -1,11 +1,19 @@
 #!/bin/bash -e
 
-# Copyright 2014 Globo.com. All rights reserved.
+# Copyright 2016 Globo.com. All rights reserved.
 # Use of this source code is governed by a BSD-style
 # license that can be found in the LICENSE file.
 
-# This script builds and uploads tsuru's clients to S3. It requires s3cmd to be
-# installed and properly configured.
+# This script builds and uploads tsuru's clients to S3. It requires awscli to
+# be installed and properly configured. The recommended way of configuring
+# awscli is through the following environment variables:
+#
+#   - AWS_ACCESS_KEY_ID
+#   - AWS_SECRET_ACCESS_KEY
+#   - AWS_DEFAULT_REGION
+#
+# There's also an optional environment variable for customizing the destination
+# bucket: BUCKET_NAME. The default value is "tsuru".
 #
 # Usage:
 #
@@ -127,4 +135,4 @@ if [ $gandalf = 1 ]; then package ${destination_dir}/gandalf-${gandalf_version}.
 rm -rf /tmp/tsuru-clients
 
 cd /tmp
-s3cmd -P sync dist-src s3://tsuru
+aws s3 sync --acl public-read dist-src s3://${BUCKET_NAME:-tsuru}
