@@ -71,13 +71,13 @@ function get_tsuru_client_version {
 
 function download {
 	echo -n "Downloading $1 source... "
-	mkdir -p /tmp/tsuru-clients/src /tmp/tsuru-clients/pkg
-	GOPATH=/tmp/tsuru-clients go get -d github.com/tsuru/$1/...
+	SRC_DIR=/tmp/tsuru-clients/src/github.com/tsuru/$1
+	mkdir -p $SRC_DIR /tmp/tsuru-clients/pkg
+	GOPATH=/tmp/tsuru-clients git clone https://github.com/tsuru/${1}.git $SRC_DIR
 	pushd /tmp/tsuru-clients/src/github.com/tsuru/$1 > /dev/null 2>&1
 	git checkout $2 >/dev/null 2>&1
 	echo "ok"
 	echo -n "Restoring dependencies... "
-	GOPATH=/tmp/tsuru-clients godep restore ./...
 	popd > /dev/null 2>&1
 	echo "ok"
 }
