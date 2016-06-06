@@ -13,4 +13,9 @@ class Crane < Formula
     bin.install "crane"
     bash_completion.install "src/github.com/tsuru/crane/misc/bash-completion" => "crane"
   end
+
+  devel do
+    url "https://s3.amazonaws.com/tsuru/dist-src/crane-1.0.0-rc1.tar.gz"
+    sha256 "5d51d521b0b673707acceb17397700cc60d5f869e412ea446d6be01239732ad8"
+  end
 end
