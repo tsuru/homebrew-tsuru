@@ -13,4 +13,10 @@ class TsuruAdmin < Formula
     bash_completion.install "src/github.com/tsuru/tsuru-admin/misc/bash-completion" => "tsuru-admin"
     zsh_completion.install "src/github.com/tsuru/tsuru-admin/misc/zsh-completion" => "tsuru-admin"
   end
+
+  devel do
+    url "https://s3.amazonaws.com/tsuru/dist-src/tsuru-admin-1.0.0-rc1.tar.gz"
+    sha256 "c39aa6d958421633df9ad389079bde6168f2efdfe2c55c0c6c5977a97c7da276"
+  end
+
 end
