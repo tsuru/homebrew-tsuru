@@ -135,4 +135,4 @@ if [ $gandalf = 1 ]; then package ${destination_dir}/gandalf-${gandalf_version}.
 rm -rf /tmp/tsuru-clients
 
 cd /tmp
-aws s3 sync --acl public-read dist-src s3://${BUCKET_NAME:-tsuru/dist-src}
+aws s3 sync --acl public-read dist-src s3://${BUCKET_NAME:-tsuru}
