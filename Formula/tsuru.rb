@@ -21,8 +21,8 @@ class Tsuru < Formula
   end
 
   devel do
-    url "https://s3.amazonaws.com/tsuru/dist-src/tsuru-1.0.1-rc1.tar.gz"
-    sha256 "86417d236f4e2b595011d8cca2678166f43612c69f92eccd6f2e08765aa1e312"
+    url "https://s3.amazonaws.com/tsuru/dist-src/tsuru-1.0.1-rc2.tar.gz"
+    sha256 "2c2335b3143615eb7e77c6af1b483f8207ac2110c05586126c7f31515c7ca2d7"
     ENV['TSURU_DEVEL'] = "true"
   end
 
