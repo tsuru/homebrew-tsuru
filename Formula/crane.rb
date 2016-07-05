@@ -1,9 +1,9 @@
 require 'formula'
 
 class Crane < Formula
-  url 'https://s3.amazonaws.com/tsuru/dist-src/crane-0.8.0.tar.gz'
+  url 'https://s3.amazonaws.com/tsuru/crane-1.0.0.tar.gz'
   homepage 'https://tsuru.io'
-  sha256 'a3924bfad0668bd2f64c0a7ecbf2fb2e8824ebde0814ae5f7ecbb72b7132f775'
+  sha256 '730e3a1d98b9e3e176c62ab67cf8eebb3e295027eeffa6032b59f6bd3fbc4e4d'
 
   depends_on 'go'
 
@@ -12,10 +12,5 @@ class Crane < Formula
     system "bash", "-c", "GOPATH=\"$PWD\" go build -o crane github.com/tsuru/crane"
     bin.install "crane"
     bash_completion.install "src/github.com/tsuru/crane/misc/bash-completion" => "crane"
-  end
-
-  devel do
-    url "https://s3.amazonaws.com/tsuru/dist-src/crane-1.0.0-rc1.tar.gz"
-    sha256 "5d51d521b0b673707acceb17397700cc60d5f869e412ea446d6be01239732ad8"
   end
 end
