@@ -1,9 +1,9 @@
 require 'formula'
 
 class Tsuru < Formula
-  url "https://s3.amazonaws.com/tsuru/dist-src/tsuru-0.18.1.tar.gz"
+  url "https://s3.amazonaws.com/tsuru/tsuru-1.0.1.tar.gz"
   homepage "https://tsuru.io"
-  sha256 "ff3b62c5e5cfbd74d000e92f95f38f61b5cb1cba57ecbaa077e76e071de1dfdc"
+  sha256 "ca246f280c010f43ff816ee4a41df0c4e90eb555639d52d4c7ed5760a5a49069"
 
   depends_on 'go'
 
@@ -19,11 +19,4 @@ class Tsuru < Formula
     bash_completion.install "src/github.com/tsuru/tsuru-client/misc/bash-completion" => "tsuru"
     zsh_completion.install "src/github.com/tsuru/tsuru-client/misc/zsh-completion" => "tsuru"
   end
-
-  devel do
-    url "https://s3.amazonaws.com/tsuru/dist-src/tsuru-1.0.1-rc2.tar.gz"
-    sha256 "2c2335b3143615eb7e77c6af1b483f8207ac2110c05586126c7f31515c7ca2d7"
-    ENV['TSURU_DEVEL'] = "true"
-  end
-
 end
