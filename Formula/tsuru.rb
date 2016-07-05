@@ -12,10 +12,6 @@ class Tsuru < Formula
     system "bash", "-c", "GOPATH=\"$PWD\" go build -o tsuru github.com/tsuru/tsuru-client/tsuru"
     ENV['TSURU_PATH'] = "./tsuru"
     bin.install "tsuru"
-    unless ENV.key?('TSURU_DEVEL')
-      system "python", "src/github.com/tsuru/tsuru-client/docs/source/exts/man_pages.py"
-      man8.install "src/github.com/tsuru/tsuru-client/docs/source/exts/tsuru.8"
-    end
     bash_completion.install "src/github.com/tsuru/tsuru-client/misc/bash-completion" => "tsuru"
     zsh_completion.install "src/github.com/tsuru/tsuru-client/misc/zsh-completion" => "tsuru"
   end
