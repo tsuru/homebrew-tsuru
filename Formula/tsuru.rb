@@ -15,4 +15,10 @@ class Tsuru < Formula
     bash_completion.install "src/github.com/tsuru/tsuru-client/misc/bash-completion" => "tsuru"
     zsh_completion.install "src/github.com/tsuru/tsuru-client/misc/zsh-completion" => "tsuru"
   end
+
+  devel do
+    url "https://s3.amazonaws.com//tsuru/dist-src/tsuru-1.1.0-rc1.tar.gz"
+    sha256 "6f7230a29a80de70e2523d149d0a6b37f3dcad61cfb7b7f5d46098cf441293cd"
+    ENV['TSURU_DEVEL'] = "true"
+  end
 end
