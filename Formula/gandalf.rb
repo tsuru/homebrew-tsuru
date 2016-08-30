@@ -8,12 +8,10 @@ class Gandalf < Formula
   depends_on 'go'
 
   def install
-    system "bash", "-c", "test -n \"$(go version | awk '{print \$3}' | perl -ne 'print if /go1\.[0-4](\.[0-9]+)?$/')\" && echo ERROR: gandalf requires Go 1.5 or later, your version is: $(go version) && exit 1 || echo proceeding ..."
+    system "bash", "-c", "test -n \"$(go version | awk '{print \$3}' | perl -ne 'print if /go1\.[0-5](\.[0-9]+)?$/')\" && echo ERROR: gandalf requires Go 1.6 or later, your version is: $(go version) && exit 1 || echo proceeding ..."
 
     if build.head?
         env = "PATH=$PATH:#{ buildpath }/bin GOPATH=\"#{ buildpath }\""
-        system "bash", "-c", "#{env} go get github.com/tools/godep"
-        system "bash", "-c", "#{env} godep restore"
         system "bash", "-c", "#{env} mkdir -p src/github.com/tsuru/ && cd src/github.com/tsuru && curl -LO https://github.com/tsuru/gandalf/archive/master.zip && unzip master.zip && mv gandalf-master gandalf"
     end
 
