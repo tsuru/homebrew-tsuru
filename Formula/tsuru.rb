@@ -12,9 +12,9 @@ class Tsuru < Formula
 
   end
   devel do
-    url "https://github.com/tsuru/tsuru-client/releases/download/1.3.0-rc2/tsuru_1.3.0-rc2_macOS_amd64.tar.gz"
-    version "1.3.0-rc2"
-    sha256 "d5ec0c88094f623c96b9a2ab998171b4b85c43f4c192b01ed1fddaba51b88a4f"
+    url "https://github.com/tsuru/tsuru-client/releases/download/1.3.0-rc3/tsuru_1.3.0-rc3_macOS_amd64.tar.gz"
+    version "1.3.0-rc3"
+    sha256 "de18153ca10966c9249c274bfca983df1b2fe08520e4b9bd7f9f7e39b2c0068c"
     ENV['TSURU_DEVEL'] = "true"
   end
 end
