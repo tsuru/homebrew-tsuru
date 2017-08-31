@@ -14,4 +14,10 @@ class Tsuru < Formula
   test do
     
   end
+  devel do
+    url "https://github.com/tsuru/tsuru-client/releases/download/1.4.0-rc1/tsuru_1.4.0-rc1_macOS_amd64.tar.gz"
+    version "1.4.0-rc1"
+    sha256 "802cbe090ec7786e43657b2381ccc07abea7bc4b817b8655ff4f2867bd36e48d"
+    ENV['TSURU_DEVEL'] = "true"
+  end
 end
