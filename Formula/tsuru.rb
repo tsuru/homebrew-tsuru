@@ -1,9 +1,9 @@
 class Tsuru < Formula
   desc "tsuru-client is a tsuru command line tool for application developers."
   homepage "https://docs.tsuru.io/stable/"
-  url "https://github.com/tsuru/tsuru-client/releases/download/1.3.0/tsuru_1.3.0_macOS_amd64.tar.gz"
-  version "1.3.0"
-  sha256 "12bca17651135f8e959348a4e87c2f346960f3b09e4cf412308409ae4b254b93"
+  url "https://github.com/tsuru/tsuru-client/releases/download/1.4.0/tsuru_1.4.0_macOS_amd64.tar.gz"
+  version "1.4.0"
+  sha256 "5f09c97f63da301d814efab58131723216ae81642b176a78b1acc8925f6ea2e7"
 
   def install
     bin.install "tsuru"
@@ -13,11 +13,5 @@ class Tsuru < Formula
 
   test do
     
-  end
-  devel do
-    url "https://github.com/tsuru/tsuru-client/releases/download/1.4.0-rc1/tsuru_1.4.0-rc1_macOS_amd64.tar.gz"
-    version "1.4.0-rc1"
-    sha256 "802cbe090ec7786e43657b2381ccc07abea7bc4b817b8655ff4f2867bd36e48d"
-    ENV['TSURU_DEVEL'] = "true"
   end
 end
