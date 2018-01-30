@@ -11,9 +11,9 @@ class Tsuru < Formula
     zsh_completion.install "misc/zsh-completion" => "tsuru"
   end
   devel do
-    url "https://github.com/tsuru/tsuru-client/releases/download/1.5.0-rc1/tsuru_1.5.0-rc1_macOS_amd64.tar.gz"
-    version "1.5.0-rc1"
-    sha256 "e28760a45a911cd9aca1f1b01967bc5c6824e6b0e4cfc9f9f342e6c162348ac4"
+    url "https://github.com/tsuru/tsuru-client/releases/download/1.5.0-rc3/tsuru_1.5.0-rc3_macOS_amd64.tar.gz"
+    version "1.5.0-rc3"
+    sha256 "b97ffe5acddff3ca9fc31f2b7827e9b7ecff190cff6cf3fa4659c335c2248b14"
     ENV['TSURU_DEVEL'] = "true"
   end
 end
