@@ -10,6 +10,13 @@ class Tsuru < Formula
     bash_completion.install "misc/bash-completion" => "tsuru"
     zsh_completion.install "misc/zsh-completion" => "tsuru"
   end
+  
+  devel do
+    url "https://github.com/tsuru/tsuru-client/releases/download/1.7.0-rc1/tsuru_1.7.0-rc1_macOS_amd64.tar.gz"
+    version "1.7.0-rc1"
+    sha256 "bd9a5e13e802caf8b43557df9d5ef19aae4a581547d28b2b1b2ce4deb362dfae"
+    ENV['TSURU_DEVEL'] = "true"
+  end
 
   test do
     
