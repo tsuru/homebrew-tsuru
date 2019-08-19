@@ -2,30 +2,19 @@
 class Tsuru < Formula
   desc "tsuru-client is a tsuru command line tool for application developers."
   homepage "https://docs.tsuru.io/stable/"
-  version "1.7.1"
+  version "1.7.2"
 
   if OS.mac?
-    url "https://github.com/tsuru/tsuru-client/releases/download/1.7.1/tsuru_1.7.1_macOS_amd64.tar.gz"
-    sha256 "b60fec815c30726b720482f1cc3204341b033de1b68c17cd1e9123233cb15d70"
+    url "https://github.com/tsuru/tsuru-client/releases/download/1.7.2/tsuru_1.7.2_macOS_amd64.tar.gz"
+    sha256 "07aca190a6b17ad78d0f01e9eadf1f0e6eaa5da358714572b9731573fad5244e"
   elsif OS.linux?
-    url "https://github.com/tsuru/tsuru-client/releases/download/1.7.1/tsuru_1.7.1_linux_amd64.tar.gz"
-    sha256 "05dc81dc89e2e4874af862f62c6fdb8e2fefc32ce2aea426e1ceed8aa01b0370"
+    url "https://github.com/tsuru/tsuru-client/releases/download/1.7.2/tsuru_1.7.2_linux_amd64.tar.gz"
+    sha256 "16788be7113900e1b10566d4637b832b67be72500b44a9489d2bf1221d86b6e5"
   end
 
   def install
     bin.install "tsuru"
     bash_completion.install "misc/bash-completion" => "tsuru"
     zsh_completion.install "misc/zsh-completion" => "tsuru"
-  end
-
-  devel do
-    version "1.7.1"
-    if OS.mac?
-      url "https://github.com/tsuru/tsuru-client/releases/download/1.7.1/tsuru_1.7.1_macOS_amd64.tar.gz"
-      sha256 "b60fec815c30726b720482f1cc3204341b033de1b68c17cd1e9123233cb15d70"
-    elsif OS.linux?
-      url "https://github.com/tsuru/tsuru-client/releases/download/1.7.1/tsuru_1.7.1_linux_amd64.tar.gz"
-      sha256 "05dc81dc89e2e4874af862f62c6fdb8e2fefc32ce2aea426e1ceed8aa01b0370"
-    end
   end
 end
