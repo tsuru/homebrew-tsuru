@@ -2,16 +2,16 @@
 class Tsuru < Formula
   desc "tsuru-client is a tsuru command line tool for application developers."
   homepage "https://docs.tsuru.io/stable/"
-  version "1.8.0"
+  version "1.8.1"
   bottle :unneeded
 
   if OS.mac?
-    url "https://github.com/tsuru/tsuru-client/releases/download/1.8.0/tsuru_1.8.0_macOS_amd64.tar.gz"
-    sha256 "984e0ed3d1da984f2fa64a55f3fc52fdfc0f5150ca46e1c3a6c26362bc71646a"
+    url "https://github.com/tsuru/tsuru-client/releases/download/1.8.1/tsuru_1.8.1_macOS_amd64.tar.gz"
+    sha256 "908f1fe3bd58d3e244b3ed2a7bc0f9347d2d57f2643f27da594b31a5ae23cfcb"
   elsif OS.linux?
     if Hardware::CPU.intel?
-      url "https://github.com/tsuru/tsuru-client/releases/download/1.8.0/tsuru_1.8.0_linux_amd64.tar.gz"
-      sha256 "207a14c4ac4ee7767efaf3382271ae5aecc63b7284c6da8fa4d289d323fed08a"
+      url "https://github.com/tsuru/tsuru-client/releases/download/1.8.1/tsuru_1.8.1_linux_amd64.tar.gz"
+      sha256 "9f285cc716b448518d46418ba82bf0e1132723e9b12940c6de2d0c54a81213cc"
     end
   end
 
