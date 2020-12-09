@@ -7,11 +7,11 @@ class Tsuru < Formula
 
   if OS.mac?
     url "https://github.com/tsuru/tsuru-client/releases/download/1.9.4/tsuru_1.9.4_macOS_amd64.tar.gz"
-    sha256 "bb5ef01ac664f851d9a44f71eb47e2794496ff3a5720f69c337828a8686eb25a"
+    sha256 "a548bbdfa1b0822e63ed1dd2a8313f53a20d572ed546a97edad3a252136594a9"
   end
   if OS.linux? && Hardware::CPU.intel?
     url "https://github.com/tsuru/tsuru-client/releases/download/1.9.4/tsuru_1.9.4_linux_amd64.tar.gz"
-    sha256 "7535e7f0c159d1435cfff41c1c14d5afa12382480bbfb6a467c09b6d730eaff6"
+    sha256 "0d4f2e4db4fab8043bccef51084875fe3650e7e73c551668043e2a1a15975377"
   end
 
   def install
