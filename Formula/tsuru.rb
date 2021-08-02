@@ -5,20 +5,29 @@
 class Tsuru < Formula
   desc "tsuru-client is a tsuru command line tool for application developers."
   homepage "https://docs.tsuru.io/stable/"
-  version "1.9.6"
+  version "1.10.0"
   bottle :unneeded
 
-  if OS.mac? && Hardware::CPU.intel?
-    url "https://github.com/tsuru/tsuru-client/releases/download/1.9.6/tsuru_1.9.6_macOS_amd64.tar.gz"
-    sha256 "06f2c547437213d783452de5fdac9ef575df3a6a279192b771fc554787f0a61a"
+  on_macos do
+    if Hardware::CPU.intel?
+      url "https://github.com/tsuru/tsuru-client/releases/download/1.10.0/tsuru_1.10.0_macOS_amd64.tar.gz"
+      sha256 "4edc2356a39b536ad5b18f09e3babf658b1525f8c395fa05762f26f80df16b01"
+    end
+    if Hardware::CPU.arm?
+      url "https://github.com/tsuru/tsuru-client/releases/download/1.10.0/tsuru_1.10.0_macOS_arm64.tar.gz"
+      sha256 "05b26adb16b226d945456662d199eccd07fa27452a12f189d711aee6177fdf06"
+    end
   end
-  if OS.mac? && Hardware::CPU.arm?
-    url "https://github.com/tsuru/tsuru-client/releases/download/1.10.0-rc4/tsuru_1.10.0-rc4_macOS_arm64.tar.gz"
-    sha256 "1977751964e0d8ecc450a5c88bdb9379f8adeab8ec16ede971c1c4e05a155148"
-  end
-  if OS.linux? && Hardware::CPU.intel?
-    url "https://github.com/tsuru/tsuru-client/releases/download/1.9.6/tsuru_1.9.6_linux_amd64.tar.gz"
-    sha256 "ac691701fdc717e754e6bffda47510655ba6df1a73de20ca50ca192271182b8a"
+
+  on_linux do
+    if Hardware::CPU.intel?
+      url "https://github.com/tsuru/tsuru-client/releases/download/1.10.0/tsuru_1.10.0_linux_amd64.tar.gz"
+      sha256 "9740bac3fb56179dbc8f750f4a35e2782492f36f2cc5e70c118f1ebbfc841f3c"
+    end
+    if Hardware::CPU.arm? && Hardware::CPU.is_64_bit?
+      url "https://github.com/tsuru/tsuru-client/releases/download/1.10.0/tsuru_1.10.0_linux_arm64.tar.gz"
+      sha256 "cb915eb60aef91a1e3cab8f2c27054181e98ba8068ff06a7a0482a4b774de27c"
+    end
   end
 
   def install
