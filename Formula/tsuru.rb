@@ -8,9 +8,9 @@ class Tsuru < Formula
   version "1.10.2"
 
   on_macos do
-    if Hardware::CPU.intel?
-      url "https://github.com/tsuru/tsuru-client/releases/download/1.10.2/tsuru_1.10.2_macOS_amd64.tar.gz"
-      sha256 "5b72b4102d45201be9c08aa55a7c43a6ae4287c5589536eb3d3dea03e07241da"
+    if Hardware::CPU.arm?
+      url "https://github.com/tsuru/tsuru-client/releases/download/1.10.2/tsuru_1.10.2_macOS_arm64.tar.gz"
+      sha256 "77eccd9e0ce772762fa6972c753e2e07fe0a94cf29ba09110bbc9fa006b51be1"
 
       def install
         bin.install "tsuru"
@@ -18,9 +18,9 @@ class Tsuru < Formula
         zsh_completion.install "misc/zsh-completion" => "tsuru"
       end
     end
-    if Hardware::CPU.arm?
-      url "https://github.com/tsuru/tsuru-client/releases/download/1.10.2/tsuru_1.10.2_macOS_arm64.tar.gz"
-      sha256 "1fa2d8e1c629311c44d8d0520a4926a2083f618251909eb2e1e6b2499537f8e0"
+    if Hardware::CPU.intel?
+      url "https://github.com/tsuru/tsuru-client/releases/download/1.10.2/tsuru_1.10.2_macOS_amd64.tar.gz"
+      sha256 "55612b163a6944fb3c5b97341231549e8189b74d83f8f52b887b44af645850cd"
 
       def install
         bin.install "tsuru"
@@ -33,7 +33,7 @@ class Tsuru < Formula
   on_linux do
     if Hardware::CPU.arm? && Hardware::CPU.is_64_bit?
       url "https://github.com/tsuru/tsuru-client/releases/download/1.10.2/tsuru_1.10.2_linux_arm64.tar.gz"
-      sha256 "fb4ecfbf38d5f31b1626639298d6348a40453f5e94102acbd9e5fab0e06e555e"
+      sha256 "11e1b87f22dad8d0841a4a3c645fad1e0d6b1826c7519faa089dfb5569e6ccbc"
 
       def install
         bin.install "tsuru"
@@ -43,7 +43,7 @@ class Tsuru < Formula
     end
     if Hardware::CPU.intel?
       url "https://github.com/tsuru/tsuru-client/releases/download/1.10.2/tsuru_1.10.2_linux_amd64.tar.gz"
-      sha256 "8cd0108007d4563f4ac419c6076159bdf559c9e917fcff144736d48a354a7686"
+      sha256 "f18ae3b8d033362984ecc99c9a2a6141736eb6d08e514ed87199f51475afbfe6"
 
       def install
         bin.install "tsuru"
