@@ -5,12 +5,12 @@
 class Tsuru < Formula
   desc "tsuru-client is a tsuru command line tool for application developers."
   homepage "https://docs.tsuru.io/stable/"
-  version "1.19.3"
+  version "1.19.4"
 
   on_macos do
-    if Hardware::CPU.arm?
-      url "https://github.com/tsuru/tsuru-client/releases/download/1.19.3/tsuru_1.19.3_macOS_arm64.tar.gz"
-      sha256 "5b941986b80d8aafa2a44efbead1db4f8b5dac9d4bbb8a0a255376c59b2a2fc6"
+    if Hardware::CPU.intel?
+      url "https://github.com/tsuru/tsuru-client/releases/download/1.19.4/tsuru_1.19.4_macOS_amd64.tar.gz"
+      sha256 "58f2a75d89ad9aca33587e93d3a4dd70a15f6209f68d03619a293365ee0f91b0"
 
       def install
         bin.install "tsuru"
@@ -18,9 +18,9 @@ class Tsuru < Formula
         zsh_completion.install "misc/zsh-completion" => "tsuru"
       end
     end
-    if Hardware::CPU.intel?
-      url "https://github.com/tsuru/tsuru-client/releases/download/1.19.3/tsuru_1.19.3_macOS_amd64.tar.gz"
-      sha256 "aa8a90ed8114129b2c4fc1b5dae7a6fee0d5c57ae7c3f375ace4d4d4e00675b9"
+    if Hardware::CPU.arm?
+      url "https://github.com/tsuru/tsuru-client/releases/download/1.19.4/tsuru_1.19.4_macOS_arm64.tar.gz"
+      sha256 "e4f69c7a8d884cd82e21db335cb1e1a1b72044a2c7ea6fbb5c47c46ecf8dabc8"
 
       def install
         bin.install "tsuru"
@@ -32,8 +32,8 @@ class Tsuru < Formula
 
   on_linux do
     if Hardware::CPU.arm? && Hardware::CPU.is_64_bit?
-      url "https://github.com/tsuru/tsuru-client/releases/download/1.19.3/tsuru_1.19.3_linux_arm64.tar.gz"
-      sha256 "fa254cde550b772de6d162951bca93bebe358abf599ffe2a0fccd5cdbeda45f9"
+      url "https://github.com/tsuru/tsuru-client/releases/download/1.19.4/tsuru_1.19.4_linux_arm64.tar.gz"
+      sha256 "a9023e32cdefff9fe17cefbaa9b25814b17bbfc95eba72652d59375efe2a86ae"
 
       def install
         bin.install "tsuru"
@@ -42,8 +42,8 @@ class Tsuru < Formula
       end
     end
     if Hardware::CPU.intel?
-      url "https://github.com/tsuru/tsuru-client/releases/download/1.19.3/tsuru_1.19.3_linux_amd64.tar.gz"
-      sha256 "9707656cd80ae956c871ecb5606acf4252a0676518a72ff80cc7962132c44360"
+      url "https://github.com/tsuru/tsuru-client/releases/download/1.19.4/tsuru_1.19.4_linux_amd64.tar.gz"
+      sha256 "a9127f1e9b2446088e9e621d6d322646a741d7503da3a80875b210ec65e4573d"
 
       def install
         bin.install "tsuru"
