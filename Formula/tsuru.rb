@@ -5,12 +5,12 @@
 class Tsuru < Formula
   desc "tsuru-client is a tsuru command line tool for application developers."
   homepage "https://docs.tsuru.io/stable/"
-  version "1.19.4"
+  version "1.20.0"
 
   on_macos do
     if Hardware::CPU.intel?
-      url "https://github.com/tsuru/tsuru-client/releases/download/1.19.4/tsuru_1.19.4_macOS_amd64.tar.gz"
-      sha256 "58f2a75d89ad9aca33587e93d3a4dd70a15f6209f68d03619a293365ee0f91b0"
+      url "https://github.com/tsuru/tsuru-client/releases/download/1.20.0/tsuru_1.20.0_macOS_amd64.tar.gz"
+      sha256 "02b2bf86034604b6db18063377a4e58762b1a7418af2f08b05309a1c8dcb9fa9"
 
       def install
         bin.install "tsuru"
@@ -19,8 +19,8 @@ class Tsuru < Formula
       end
     end
     if Hardware::CPU.arm?
-      url "https://github.com/tsuru/tsuru-client/releases/download/1.19.4/tsuru_1.19.4_macOS_arm64.tar.gz"
-      sha256 "e4f69c7a8d884cd82e21db335cb1e1a1b72044a2c7ea6fbb5c47c46ecf8dabc8"
+      url "https://github.com/tsuru/tsuru-client/releases/download/1.20.0/tsuru_1.20.0_macOS_arm64.tar.gz"
+      sha256 "9421ced1c686aedfca7e1486ddba50eb35e7f537e8f026f86d5a702f71516b3b"
 
       def install
         bin.install "tsuru"
@@ -31,9 +31,9 @@ class Tsuru < Formula
   end
 
   on_linux do
-    if Hardware::CPU.arm? && Hardware::CPU.is_64_bit?
-      url "https://github.com/tsuru/tsuru-client/releases/download/1.19.4/tsuru_1.19.4_linux_arm64.tar.gz"
-      sha256 "a9023e32cdefff9fe17cefbaa9b25814b17bbfc95eba72652d59375efe2a86ae"
+    if Hardware::CPU.intel?
+      url "https://github.com/tsuru/tsuru-client/releases/download/1.20.0/tsuru_1.20.0_linux_amd64.tar.gz"
+      sha256 "5913f777f33c31bc88fb605a75420b270220d93b3cd64c94ed4d7839edccf6af"
 
       def install
         bin.install "tsuru"
@@ -41,9 +41,9 @@ class Tsuru < Formula
         zsh_completion.install "misc/zsh-completion" => "tsuru"
       end
     end
-    if Hardware::CPU.intel?
-      url "https://github.com/tsuru/tsuru-client/releases/download/1.19.4/tsuru_1.19.4_linux_amd64.tar.gz"
-      sha256 "a9127f1e9b2446088e9e621d6d322646a741d7503da3a80875b210ec65e4573d"
+    if Hardware::CPU.arm? && Hardware::CPU.is_64_bit?
+      url "https://github.com/tsuru/tsuru-client/releases/download/1.20.0/tsuru_1.20.0_linux_arm64.tar.gz"
+      sha256 "48823a7876e46939a5fcad9b1f3efea2b817a50ebc373a056504f287e9259147"
 
       def install
         bin.install "tsuru"
