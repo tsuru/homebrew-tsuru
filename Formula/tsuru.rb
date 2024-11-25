@@ -10,7 +10,7 @@ class Tsuru < Formula
   on_macos do
     on_intel do
       url "https://github.com/tsuru/tsuru-client/releases/download/1.24.1/tsuru_1.24.1_macOS_amd64.tar.gz"
-      sha256 "d35af1db08f3f5b8435fc7d422e9e8c3dac4681f9c06e51fc862c9ba86e991db"
+      sha256 "c69063504dfefff14aca33103038c7b513c791c3bca130da367175d6370e501f"
 
       def install
         bin.install "tsuru"
@@ -20,7 +20,7 @@ class Tsuru < Formula
     end
     on_arm do
       url "https://github.com/tsuru/tsuru-client/releases/download/1.24.1/tsuru_1.24.1_macOS_arm64.tar.gz"
-      sha256 "c8563aca9c8eaaa1b5028ed73e4c51db2e65bdb5f9d8a0654705b2690af9e84d"
+      sha256 "a1434417d73c7fefe8532bf031dc6b10768625b9d0ee593ebc850adc93da6936"
 
       def install
         bin.install "tsuru"
@@ -34,7 +34,7 @@ class Tsuru < Formula
     on_intel do
       if Hardware::CPU.is_64_bit?
         url "https://github.com/tsuru/tsuru-client/releases/download/1.24.1/tsuru_1.24.1_linux_amd64.tar.gz"
-        sha256 "2c43eed13fa7862695b4ccd619809359c4d239b14af3f4b5352d3c15b7623cbc"
+        sha256 "708aca7d7be6857c4a4ab66e793d2419aaa1f4a37f88b7aac2446e752bb816d3"
 
         def install
           bin.install "tsuru"
@@ -46,7 +46,7 @@ class Tsuru < Formula
     on_arm do
       if Hardware::CPU.is_64_bit?
         url "https://github.com/tsuru/tsuru-client/releases/download/1.24.1/tsuru_1.24.1_linux_arm64.tar.gz"
-        sha256 "17a8d9f03b0dd55a9715416f69ce60ecdc28c397f4cbb9d44317d24cdd6f5e00"
+        sha256 "f25e9f72230c2cf9c3d9b41666763182800029f8caa0e3245b13e130d456b23d"
 
         def install
           bin.install "tsuru"
