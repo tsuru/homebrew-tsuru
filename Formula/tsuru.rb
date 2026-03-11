@@ -5,24 +5,24 @@
 class Tsuru < Formula
   desc "tsuru-client is a tsuru command line tool for application developers."
   homepage "https://docs.tsuru.io/stable/"
-  version "1.33.1"
+  version "1.34.0"
 
   on_macos do
     if Hardware::CPU.intel?
-      url "https://github.com/tsuru/tsuru-client/releases/download/1.33.1/tsuru_1.33.1_macOS_amd64.tar.gz"
-      sha256 "b93045353997437e9984b567f19ac16a7ccac9fecd62870b00c20aa80455a18a"
+      url "https://github.com/tsuru/tsuru-client/releases/download/1.34.0/tsuru_1.34.0_macOS_amd64.tar.gz"
+      sha256 "18a832289338f9a0729f63dc6ade03cb3bb0a6ca61ce5e5eb7f556055aaa228c"
 
-      def install
+      define_method(:install) do
         bin.install "tsuru"
         bash_completion.install "misc/bash-completion" => "tsuru"
         zsh_completion.install "misc/zsh-completion" => "tsuru"
       end
     end
     if Hardware::CPU.arm?
-      url "https://github.com/tsuru/tsuru-client/releases/download/1.33.1/tsuru_1.33.1_macOS_arm64.tar.gz"
-      sha256 "e0af5ce89619d76100155b32c1c250d8022e1d32ff6baeffcf4b3df30d0b6877"
+      url "https://github.com/tsuru/tsuru-client/releases/download/1.34.0/tsuru_1.34.0_macOS_arm64.tar.gz"
+      sha256 "8bf5582351c5053c6bb8a7c34ee62c178476785a4f7284c205290d2ae3a0dec7"
 
-      def install
+      define_method(:install) do
         bin.install "tsuru"
         bash_completion.install "misc/bash-completion" => "tsuru"
         zsh_completion.install "misc/zsh-completion" => "tsuru"
@@ -32,18 +32,18 @@ class Tsuru < Formula
 
   on_linux do
     if Hardware::CPU.intel? && Hardware::CPU.is_64_bit?
-      url "https://github.com/tsuru/tsuru-client/releases/download/1.33.1/tsuru_1.33.1_linux_amd64.tar.gz"
-      sha256 "dcd5590824d9852cd9156362da538dae7d21591a8bd732c32fa6f8bc52068467"
-      def install
+      url "https://github.com/tsuru/tsuru-client/releases/download/1.34.0/tsuru_1.34.0_linux_amd64.tar.gz"
+      sha256 "e4bedeb945afd437bda0052aad46196b8ea7c6c8b81b2afcd8c7cfaeb6aba3e9"
+      define_method(:install) do
         bin.install "tsuru"
         bash_completion.install "misc/bash-completion" => "tsuru"
         zsh_completion.install "misc/zsh-completion" => "tsuru"
       end
     end
     if Hardware::CPU.arm? && Hardware::CPU.is_64_bit?
-      url "https://github.com/tsuru/tsuru-client/releases/download/1.33.1/tsuru_1.33.1_linux_arm64.tar.gz"
-      sha256 "c0d5edbaccc722a200491b35328c83bd4b18071aa6713c0990b72924da03d50d"
-      def install
+      url "https://github.com/tsuru/tsuru-client/releases/download/1.34.0/tsuru_1.34.0_linux_arm64.tar.gz"
+      sha256 "11946aaa9aa97b4514216fa27f778d7302740b45327de668c577416bb84558e0"
+      define_method(:install) do
         bin.install "tsuru"
         bash_completion.install "misc/bash-completion" => "tsuru"
         zsh_completion.install "misc/zsh-completion" => "tsuru"
